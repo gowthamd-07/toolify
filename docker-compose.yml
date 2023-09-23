@@ -1,0 +1,41 @@
+version: "3.4"
+
+services:
+  toolify_app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    image: toolify_app
+    container_name: toolify_app
+    ports:
+      - "8000:8000"
+    networks:
+      - toolify_app_network
+    env_file:
+      - toolify.env
+
+  toolify_webserver:
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile
+    image: toolify_web
+    container_name: toolify_webserver
+    ports:
+      - "8080:8080"
+    networks:
+      - toolify_app_network
+
+  postgres:
+    image: postgres:13.3
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: toolify
+      POSTGRES_USER: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    networks:
+      - toolify_app_network
+
+networks:
+  toolify_app_network:
+    driver: bridge
