@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: toolify
+  namespace: application
+spec:
+  hosts:
+    - toolify
+  http:
+  - route:
+    - destination:
+        host: toolify
+        subset: v3
