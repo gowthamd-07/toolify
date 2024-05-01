@@ -7,5 +7,5 @@ spec:
   host: toolify
   subsets:
   - labels:
-      version: 'v1'
-    name: 'v1'
+      version: 'v2'
+    name: 'v2'
