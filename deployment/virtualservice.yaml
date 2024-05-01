@@ -5,9 +5,11 @@ metadata:
   namespace: application
 spec:
   hosts:
+    - '*'
+  gateways:
     - toolify
   http:
   - route:
     - destination:
         host: toolify
-        subset: v3
+        subset: v1
