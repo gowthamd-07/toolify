@@ -13,7 +13,7 @@ spec:
             routes:
             - toolify
           destinationRule:
-            name: rollout-destrule
+            name: toolify
             canarySubsetName: v1
             stableSubsetName: v2
   replica: 1
