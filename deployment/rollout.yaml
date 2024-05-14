@@ -2,16 +2,58 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: toolify
+  namespace: application
 spec:
   strategy:
     canary:
       trafficRouting:
         istio:
           virtualService:
-            name: toolify             # required
+            name: toolify
             routes:
-            - toolify                 # optional if there is a single route in VirtualService, required otherwise
+            - toolify
           destinationRule:
-            name: rollout-destrule    # required
-            canarySubsetName: v1  # required
-            stableSubsetName: v2  # required
+            name: rollout-destrule
+            canarySubsetName: v1
+            stableSubsetName: v2
+  replica: 1
+  selector:
+    matchLabels:
+      app: toolify
+  template:
+    metadata:
+      labels:
+        app: toolify
+        version: 'v1'
+    spec:
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: toolify
+        securityContext:
+          privileged: true
+        image: gowthamd07101999/toolify:latest
+        env: 
+        - name: DATABASE_NAME
+          value: "postgres"
+        - name: DATABASE_USER
+          value: "postgres"
+        - name: DATABASE_PASSWORD
+          value: ""
+        - name: DATABASE_HOST
+          value: "postgres"
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: SECRET_KEY
+          value: 'django-insecure-g47xj&e$1^49gm3v62g0mw&o$yk=k2nn=&da2+1jk7aa4%i2w5'
+        - name: DEBUG
+          value: "False"
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            cpu: 250m
+            memory: 250Mi
+          limits:
+            cpu: 500m
+            memory: 500Mi
