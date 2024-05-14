@@ -5,11 +5,24 @@ metadata:
   namespace: application
 spec:
   hosts:
-    - '*'
+    - "*"
   gateways:
     - toolify
   http:
-  - route:
-    - destination:
-        host: toolify
-        subset: v2
+    - name: toolify
+      match:
+        - uri:
+            exact: /
+      route:
+        - destination:
+            host: toolify
+            port:
+              number: 8000 
+            subset: v1
+          weight: 75
+        - destination:
+            host: toolify
+            port:
+              number: 8000
+            subset: v2
+          weight: 25

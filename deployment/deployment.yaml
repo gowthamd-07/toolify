@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         app: toolify
-        version: 'v2'
+        version: 'v1'
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -19,7 +19,7 @@ spec:
       - name: toolify
         securityContext:
           privileged: true
-        image: gowthamd07101999/toolify:v1
+        image: gowthamd07101999/toolify:latest
         env: 
         - name: DATABASE_NAME
           value: "postgres"
@@ -39,8 +39,8 @@ spec:
         - containerPort: 8000
         resources:
           requests:
-            cpu: 100m
-            memory: 64Mi
+            cpu: 250m
+            memory: 250Mi
           limits:
-            cpu: 200m
-            memory: 128Mi
+            cpu: 500m
+            memory: 500Mi
