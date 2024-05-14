@@ -19,10 +19,4 @@ spec:
             port:
               number: 8000 
             subset: v1
-          weight: 75
-        - destination:
-            host: toolify
-            port:
-              number: 8000
-            subset: v2
-          weight: 25
+          weight: 100

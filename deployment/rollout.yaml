@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: toolify
+spec:
+  strategy:
+    canary:
+      trafficRouting:
+        istio:
+          virtualService:
+            name: toolify             # required
+            routes:
+            - toolify                 # optional if there is a single route in VirtualService, required otherwise
+          destinationRule:
+            name: rollout-destrule    # required
+            canarySubsetName: v1  # required
+            stableSubsetName: v2  # required
