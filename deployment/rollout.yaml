@@ -32,7 +32,7 @@ spec:
       - name: toolify
         securityContext:
           privileged: true
-        image: gowthamd07101999/toolify:latest
+        image: gowthamd07101999/toolify:d2c5eea
         env: 
         - name: DATABASE_NAME
           value: "postgres"
