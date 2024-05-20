@@ -17,6 +17,11 @@ spec:
             name: toolify
             canarySubsetName: 'd2c5eea'
             stableSubsetName: 'bd3364a'
+      steps:
+      - setWeight: 0
+      - pause: {}
+      - setWeight: 100
+      - pause: {}
   selector:
     matchLabels:
       app: toolify
