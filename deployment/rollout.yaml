@@ -15,8 +15,8 @@ spec:
             - toolify
           destinationRule:
             name: toolify
-            canarySubsetName: 'd2c5eea'
-            stableSubsetName: 'bd3364a'
+            canarySubsetName: 'bd3364a'
+            stableSubsetName: 'd2c5eea'
   selector:
     matchLabels:
       app: toolify
@@ -24,7 +24,7 @@ spec:
     metadata:
       labels:
         app: toolify
-        version: 'bd3364a'
+        version: 'd2c5eea'
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
