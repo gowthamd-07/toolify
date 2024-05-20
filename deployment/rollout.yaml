@@ -14,46 +14,5 @@ spec:
             - toolify
           destinationRule:
             name: toolify
-            canarySubsetName: v2
-            stableSubsetName: v3
-  replica: 1
-  selector:
-    matchLabels:
-      app: toolify
-  template:
-    metadata:
-      labels:
-        app: toolify
-        version: 'v3'
-    spec:
-      serviceAccountName: default
-      terminationGracePeriodSeconds: 5
-      containers:
-      - name: toolify
-        securityContext:
-          privileged: true
-        image: gowthamd07101999/toolify:latest
-        env: 
-        - name: DATABASE_NAME
-          value: "postgres"
-        - name: DATABASE_USER
-          value: "postgres"
-        - name: DATABASE_PASSWORD
-          value: ""
-        - name: DATABASE_HOST
-          value: "postgres"
-        - name: DATABASE_PORT
-          value: "5432"
-        - name: SECRET_KEY
-          value: 'django-insecure-g47xj&e$1^49gm3v62g0mw&o$yk=k2nn=&da2+1jk7aa4%i2w5'
-        - name: DEBUG
-          value: "False"
-        ports:
-        - containerPort: 8000
-        resources:
-          requests:
-            cpu: 250m
-            memory: 250Mi
-          limits:
-            cpu: 500m
-            memory: 500Mi
+            canarySubsetName: '12345'
+            stableSubsetName: '67890'

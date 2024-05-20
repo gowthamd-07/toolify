@@ -1,0 +1,20 @@
+
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: toolify
+  namespace: application
+spec:
+  exportTo:
+  - '*'
+  host: toolify
+  subsets:
+    - name: '12345'
+      labels:
+        version: '12345'
+    - name: '67890'
+      labels:
+        version: '67890'
+  trafficPolicy: 
+    loadBalancer:
+      simple: ROUND_ROBIN

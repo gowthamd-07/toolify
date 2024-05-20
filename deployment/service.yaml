@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: toolify
+  namespace: application
+spec:
+  type: ClusterIP
+  selector:
+    app: toolify
+  ports:
+  - name: toolify
+    port: 8000
+    targetPort: 8000
