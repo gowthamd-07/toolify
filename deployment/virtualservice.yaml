@@ -18,11 +18,11 @@ spec:
           host: toolify
           port:
             number: 8000
-          subset: 'bd3364a'
+          subset: 'd2c5eea'
         weight: 0
       - destination:
           host: toolify
           port:
             number: 8000
-          subset: 'd2c5eea'
+          subset: 'bd3364a'
         weight: 100
