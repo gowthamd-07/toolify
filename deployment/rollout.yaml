@@ -15,10 +15,10 @@ spec:
             - toolify
           destinationRule:
             name: toolify
-            canarySubsetName: 'd2c5eea'
-            stableSubsetName: 'bd3364a'
+            canarySubsetName: 'bd3364a'
+            stableSubsetName: 'd2c5eea'
       steps:
-      - setWeight: 0
+      - setWeight: 1
       - pause: {}
       - setWeight: 100
       - pause: {}
@@ -29,7 +29,7 @@ spec:
     metadata:
       labels:
         app: toolify
-        version: 'bd3364a'
+        version: 'd2c5eea'
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -37,7 +37,7 @@ spec:
       - name: toolify
         securityContext:
           privileged: true
-        image: gowthamd07101999/toolify:bd3364a
+        image: gowthamd07101999/toolify:d2c5eea
         env: 
         - name: DATABASE_NAME
           value: "postgres"
