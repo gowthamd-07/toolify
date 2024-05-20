@@ -15,8 +15,8 @@ spec:
             - toolify
           destinationRule:
             name: toolify
-            canarySubsetName: '12345'
-            stableSubsetName: '67890'
+            canarySubsetName: '67890'
+            stableSubsetName: '12345'
   selector:
     matchLabels:
       app: toolify

@@ -9,12 +9,12 @@ spec:
   - '*'
   host: toolify
   subsets:
-    - name: '12345'
-      labels:
-        version: '12345'
     - name: '67890'
       labels:
         version: '67890'
+    - name: '12345'
+      labels:
+        version: '12345'
   trafficPolicy: 
     loadBalancer:
       simple: ROUND_ROBIN

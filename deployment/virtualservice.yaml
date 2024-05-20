@@ -19,10 +19,10 @@ spec:
           port:
             number: 8000
           subset: '12345'
-        weight: 0
+        weight: 100
       - destination:
           host: toolify
           port:
             number: 8000
           subset: '67890'
-        weight: 100
+        weight: 0
