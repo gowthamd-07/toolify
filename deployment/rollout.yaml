@@ -8,7 +8,6 @@ spec:
   strategy:
     canary:
       steps:
-        - setWeight: 10
         - pause: {}
         - setWeight: 100
       trafficRouting:
@@ -19,8 +18,8 @@ spec:
             - toolify
           destinationRule:
             name: toolify
-            canarySubsetName: 'bd3364a'
-            stableSubsetName: 'd2c5eea'
+            canarySubsetName: 'd2c5eea'
+            stableSubsetName: 'bd3364a'
   selector:
     matchLabels:
       app: toolify
@@ -28,7 +27,7 @@ spec:
     metadata:
       labels:
         app: toolify
-        version: 'd2c5eea'
+        version: 'bd3364a'
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5

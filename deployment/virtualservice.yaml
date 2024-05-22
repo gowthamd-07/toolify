@@ -1,28 +1,28 @@
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1
 kind: VirtualService
 metadata:
   name: toolify
   namespace: application
 spec:
-  hosts:
-    - "*"
   gateways:
-    - toolify
+  - toolify
+  hosts:
+  - '*'
   http:
-    - name: toolify
-      match:
-        - uri:
-            exact: /
-      route:
-      - destination:
-          host: toolify
-          port:
-            number: 8000
-          subset: 'd2c5eea'
-        weight: 0
-      - destination:
-          host: toolify
-          port:
-            number: 8000
-          subset: 'bd3364a'
-        weight: 100
+  - match:
+    - uri:
+        exact: /
+    name: toolify
+    route:
+    - destination:
+        host: toolify
+        port:
+          number: 8000
+        subset: d2c5eea
+      weight: 100
+    - destination:
+        host: toolify
+        port:
+          number: 8000
+        subset: bd3364a
+      weight: 0

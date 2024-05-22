@@ -9,12 +9,12 @@ spec:
   - '*'
   host: toolify
   subsets:
-    - name: 'd2c5eea'
-      labels:
-        version: 'd2c5eea'
     - name: 'bd3364a'
       labels:
         version: 'bd3364a'
+    - name: 'd2c5eea'
+      labels:
+        version: 'd2c5eea'
   trafficPolicy: 
     loadBalancer:
       simple: ROUND_ROBIN
