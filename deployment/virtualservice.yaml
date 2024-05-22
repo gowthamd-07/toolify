@@ -19,6 +19,23 @@ spec:
         port:
           number: 8000
         subset: d2c5eea
+      weight: 0
+    - destination:
+        host: toolify
+        port:
+          number: 8000
+        subset: bd3364a
+      weight: 100
+  - match:
+    - uri:
+        exact: /
+    name: toolify-version
+    route:
+    - destination:
+        host: toolify
+        port:
+          number: 8000
+        subset: d2c5eea
       weight: 100
     - destination:
         host: toolify
