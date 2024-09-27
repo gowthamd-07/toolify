@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: toolify
+  namespace: application
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+    - port:
+        number: 443
+        name: http
+        protocol: HTTP
+      hosts:
+        - istio.gowthamd.cloud
+        - toolify.gowthamd.cloud

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: toolify
+  namespace: application
+spec:
+  strategy:
+    canary:
+      trafficRouting:
+        istio:
+          virtualService:
+            name: toolify
+            routes:
+            - toolify
+          destinationRule:
+            name: toolify
+            canarySubsetName: '{{ .Values.image.previosVersion }}'
+            stableSubsetName: '{{ .Values.image.version }}'

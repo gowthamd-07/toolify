@@ -1,0 +1,6 @@
+replicaCount: 1
+image:
+  repository: 381491872394.dkr.ecr.ap-south-1.amazonaws.com/toolify
+  pullPolicy: IfNotPresent
+  version: "4eb7422"
+  previousVersion : "4567890"

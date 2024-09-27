@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: toolify
+  namespace: application
+spec:
+  exportTo:
+  - '*'
+  host: toolify
+  subsets:
+    - name: '{{ .Values.image.previousVersion }}'
+      labels:
+        version: '{{ .Values.image.previousVersion }}'
+    - name: '{{ .Values.image.version }}'
+      labels:
+        version: '{{ .Values.image.version }}'
+  trafficPolicy: {}
