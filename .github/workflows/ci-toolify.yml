@@ -1,4 +1,4 @@
-name: "[CI] Build Docker image for toolify in uat branch"
+name: "[CI UAT] Build Docker image for toolify"
 on:
   push:
     branches:
