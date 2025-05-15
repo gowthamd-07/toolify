@@ -14,9 +14,9 @@ ADD requirements.txt requirements.txt
 # Adding Packages
 RUN pip install -r requirements.txt
 
-ADD . .
+ADD ../../ .
 
-ADD docker/app/entrypoint.sh /usr/bin/
+ADD ./entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
