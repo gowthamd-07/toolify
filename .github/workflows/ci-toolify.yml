@@ -1,8 +1,8 @@
-name: "[CI] Build Docker image for toolify"
+name: "[CI] Build Docker image for toolify in uat branch"
 on:
   push:
     branches:
-      - main
+      - uat
 
 permissions:
   contents: read
@@ -25,4 +25,3 @@ jobs:
           context: docker/app
           push: false
           tags: toolify:latest  # local tag, can be anything
-    
