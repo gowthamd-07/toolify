@@ -9,7 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 RUN mkdir -p $TOOLIFY
 WORKDIR $TOOLIFY
 
-ADD requirements.txt requirements.txt
+ADD ../../requirements.txt requirements.txt
 
 # Adding Packages
 RUN pip install -r requirements.txt
